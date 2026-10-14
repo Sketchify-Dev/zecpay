@@ -51,7 +51,8 @@ https://github.com/Sketchify-Dev/zecpay
 (Private until judging; will be made public by Oct 28, 2026.)
 
 ## Working demo
-(fill in: deployed URL)
+https://zecpay.onrender.com
+(Open it, create a demo merchant, and run the two-minute flow in DEMO.md.)
 
 ## Demo video
 (fill in: 2-minute link; script in DEMO.md)

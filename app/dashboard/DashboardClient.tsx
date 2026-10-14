@@ -82,6 +82,7 @@ export function DashboardClient() {
   const [error, setError] = useState<string | null>(null);
   const [cancelTarget, setCancelTarget] = useState<string | null>(null);
   const [cancelBusy, setCancelBusy] = useState(false);
+  const [demoName, setDemoName] = useState("Demo Merchant");
 
   const form = useForm<InvoiceFormValues>({
     resolver: zodResolver(invoiceSchema),
@@ -169,7 +170,11 @@ export function DashboardClient() {
       const res = await fetch("/api/merchants", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(DEMO_MERCHANT),
+        body: JSON.stringify({
+          ...DEMO_MERCHANT,
+          name:
+            demoName.trim().slice(0, 80) || "Demo Merchant",
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "could not create merchant");
@@ -284,14 +289,33 @@ export function DashboardClient() {
               {error}
             </p>
           )}
-          <div className="mt-8 max-w-lg">
-            <EmptyState
-              title="No merchant yet"
-              description="Create a demo merchant to start issuing private invoices."
-              icons={[Wallet, ReceiptText, ShieldCheck]}
-              action={{ label: busy ? "Creating..." : "Create demo merchant", onClick: createMerchant }}
+          <Card className="mt-8 max-w-lg p-8">
+            <span className="eyebrow">Get started</span>
+            <h2 className="t-card-title mt-3">Start getting paid privately</h2>
+            <p className="mt-2 text-[14px] leading-6 text-[var(--muted)]">
+              Name your demo merchant to generate invoices. In production you
+              register your own Unified Address and viewing key, the spend key
+              never leaves your wallet.
+            </p>
+            <label htmlFor="demo-name" className="mt-5 block text-[13px] text-[var(--muted)]">
+              Merchant name
+            </label>
+            <input
+              id="demo-name"
+              value={demoName}
+              onChange={(e) => setDemoName(e.target.value)}
+              maxLength={80}
+              className="mt-1.5 h-11 w-full rounded-xl border border-[var(--border)] bg-black/[0.03] px-4 text-sm outline-none placeholder:text-[var(--faint)] focus:border-[var(--accent)]/60"
+              placeholder="Demo Merchant"
             />
-          </div>
+            <button
+              onClick={createMerchant}
+              disabled={busy}
+              className={buttonClass("gold", "md", "mt-4")}
+            >
+              {busy ? "Creating..." : "Create demo merchant"}
+            </button>
+          </Card>
         </main>
       </div>
     );
