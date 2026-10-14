@@ -47,7 +47,8 @@ cryptographic disclosure, both behind interfaces and always shown under a "Demo
 mode, simulated payments" badge. Nothing in the UI presents a mock as live.
 
 ## Code repository
-(fill in: public by Oct 28)
+https://github.com/Sketchify-Dev/zecpay
+(Private until judging; will be made public by Oct 28, 2026.)
 
 ## Working demo
 (fill in: deployed URL)
