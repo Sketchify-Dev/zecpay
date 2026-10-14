@@ -6,12 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "ZECPAY_DATA_DIR=:memory: node --import tsx --test \"lib/**/*.test.ts\"",
+    "zcash:scan": "node scripts/zcash-scan.mjs"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "@ledgerhq/zcash-utils": "^2.5.1",
+    "@types/qrcode": "^1.5.6",
+    "lucide-react": "^0.545.0",
     "next": "16.4.0",
+    "qrcode": "^1.5.4",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-hook-form": "^7.90.0",
+    "sonner": "^2.0.8",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
@@ -21,6 +31,10 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",
+    "tsx": "^4.19.0",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }
