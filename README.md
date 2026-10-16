@@ -3,6 +3,7 @@
   <h1>ZecPay</h1>
   <p><strong>Private invoicing on Zcash.</strong> Get paid in shielded ZEC, then prove any single payment, without revealing your rates or your other income.</p>
   <p>Built for <strong>ZECATHON</strong>, Track 01: Shielded Payments.</p>
+  <p><a href="https://zecpay.onrender.com"><strong>Live demo</strong></a> · <a href="https://youtu.be/e3xrq4XDH-k"><strong>Demo video</strong></a></p>
 </div>
 
 ## The problem
